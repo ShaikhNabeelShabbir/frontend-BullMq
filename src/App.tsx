@@ -1,11 +1,20 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 
+// Import pages
 import CreateToken from "./pages/CreateToken";
 import ViewTokens from "./pages/ViewTokens";
 import DeleteToken from "./pages/DeleteToken";
 import UpdateToken from "./pages/UpdateToken";
-import "./styles.css";
+import LinkedInPage from "./pages/LinkedInPage";
+
+// Import components
 import { Button } from "./components/ui/button";
 import {
   Accordion,
@@ -21,13 +30,11 @@ import {
   MenubarShortcut,
   MenubarTrigger,
 } from "@/components/ui/menubar";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-} from "@clerk/clerk-react";
-import LinkedInPage from "./pages/LinkedInPage";
+
+// Import styles
+import "./styles.css";
+import { LoginButton } from "./pages/LoginButton";
+import GitHubPage from "./pages/GithubLoginPage";
 
 const App: React.FC = () => {
   const [token, setToken] = useState<string>(() => {
@@ -47,16 +54,25 @@ const App: React.FC = () => {
       <Router>
         <h3>Welcome to the App</h3>
 
+        {/* If the user is signed in, display this section */}
         <SignedIn>
           <>
             <br />
             <Button onClick={handleLogout}>
-              <br /> <UserButton />
+              <UserButton />
+              <span> Logout</span>
             </Button>
             <br />
             <div className="flex w-full">
-              {/* Replace LinkedIn button with LinkedInPage component */}
+              {/* LinkedIn login */}
               <LinkedInPage />
+              <GitHubPage />
+              <LoginButton
+                onAuthCallback={(data) => {
+                  console.log(data);
+                }}
+                botUsername={"BotNabeelBot"}
+              />
             </div>
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
@@ -92,6 +108,7 @@ const App: React.FC = () => {
           </>
         </SignedIn>
 
+        {/* If the user is signed out, display this section */}
         <SignedOut>
           <header>
             <SignInButton />
@@ -99,6 +116,7 @@ const App: React.FC = () => {
           <Routes></Routes>
         </SignedOut>
 
+        {/* Define routes */}
         <Routes>
           <Route
             path="/create-token"
@@ -132,7 +150,7 @@ const App: React.FC = () => {
               </SignedIn>
             }
           />
-          {/* Add a route for LinkedIn authentication */}
+          {/* Route for LinkedIn authentication */}
           <Route path="/linkedin" element={<LinkedInPage />} />
         </Routes>
       </Router>
