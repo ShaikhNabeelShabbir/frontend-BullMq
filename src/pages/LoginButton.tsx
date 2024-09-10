@@ -1,3 +1,4 @@
+//createScript.ts
 import { useEffect, useRef } from "react";
 import { createScript } from "./createScript";
 import { LoginButtonProps, TTelegramAuthLogin } from "./types";

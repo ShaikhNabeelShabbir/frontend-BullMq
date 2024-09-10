@@ -33,8 +33,8 @@ import {
 
 // Import styles
 import "./styles.css";
-import { LoginButton } from "./pages/LoginButton";
 import GitHubPage from "./pages/GithubLoginPage";
+import TwitterPage from "./pages/TwitterPage";
 
 const App: React.FC = () => {
   const [token, setToken] = useState<string>(() => {
@@ -67,12 +67,14 @@ const App: React.FC = () => {
               {/* LinkedIn login */}
               <LinkedInPage />
               <GitHubPage />
-              <LoginButton
+              <TwitterPage />
+
+              {/* <LoginButton
                 onAuthCallback={(data) => {
                   console.log(data);
                 }}
-                botUsername={"BotNabeelBot"}
-              />
+                botUsername={"Phenoxide_bot"}
+              /> */}
             </div>
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">

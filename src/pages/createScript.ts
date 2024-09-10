@@ -1,3 +1,4 @@
+//createScript.ts
 import { CreateScriptOptions } from "./types";
 
 /**
