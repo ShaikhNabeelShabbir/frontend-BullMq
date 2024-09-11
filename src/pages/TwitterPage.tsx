@@ -19,7 +19,6 @@ const TwitterLoginButton: React.FC = () => {
       consumerKey={consumerKey}
       consumerSecret={consumerSecret}
       callbackUrl="http://localhost:5173/twitter" // Replace with your app's callback URL
-      buttonTheme="dark" // Optional: Customize button theme
     />
   );
 };

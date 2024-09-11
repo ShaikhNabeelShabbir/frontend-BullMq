@@ -13,6 +13,9 @@ import ViewTokens from "./pages/ViewTokens";
 import DeleteToken from "./pages/DeleteToken";
 import UpdateToken from "./pages/UpdateToken";
 import LinkedInPage from "./pages/LinkedInPage";
+export * from "./pages/LoginButton";
+export * from "./pages/createScript";
+export * from "./pages/types";
 
 // Import components
 import { Button } from "./components/ui/button";
@@ -35,6 +38,7 @@ import {
 import "./styles.css";
 import GitHubPage from "./pages/GithubLoginPage";
 import TwitterPage from "./pages/TwitterPage";
+import { LoginButton } from "./pages/LoginButton";
 
 const App: React.FC = () => {
   const [token, setToken] = useState<string>(() => {
@@ -63,18 +67,17 @@ const App: React.FC = () => {
               <span> Logout</span>
             </Button>
             <br />
-            <div className="flex w-full">
-              {/* LinkedIn login */}
+            <div className="flex w-fit flex-col space-y-5 ">
               <LinkedInPage />
               <GitHubPage />
               <TwitterPage />
-
-              {/* <LoginButton
+              <LoginButton
+                botUsername={"Phenoxide_bot"}
                 onAuthCallback={(data) => {
                   console.log(data);
+                  // call your backend here to validate the data and sign in the user
                 }}
-                botUsername={"Phenoxide_bot"}
-              /> */}
+              />
             </div>
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">

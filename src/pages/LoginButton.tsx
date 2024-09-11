@@ -1,7 +1,6 @@
-//createScript.ts
-import { useEffect, useRef } from "react";
-import { createScript } from "./createScript";
+import  { useEffect, useRef } from "react";
 import { LoginButtonProps, TTelegramAuthLogin } from "./types";
+import { createScript } from "./createScript";
 
 /**
  * It takes an object with a bunch of properties and assigns it to the global variable
