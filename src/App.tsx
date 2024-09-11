@@ -12,9 +12,9 @@ import CreateToken from "./pages/CreateToken";
 import ViewTokens from "./pages/ViewTokens";
 import DeleteToken from "./pages/DeleteToken";
 import UpdateToken from "./pages/UpdateToken";
-import LinkedInPage from "./pages/LinkedInPage";
-export * from "./pages/LoginButton";
-export * from "./pages/createScript";
+import LinkedInPage from "./pages/linkedIn-page";
+export * from "./pages/login-button-telegram";
+export * from "./pages/create-script";
 export * from "./pages/types";
 
 // Import components
@@ -36,9 +36,9 @@ import {
 
 // Import styles
 import "./styles.css";
-import GitHubPage from "./pages/GithubLoginPage";
-import TwitterPage from "./pages/TwitterPage";
-import { LoginButton } from "./pages/LoginButton";
+import GitHubPage from "./pages/github-login-page";
+import TwitterPage from "./pages/twitter-page";
+import { LoginButton } from "./pages/login-button-telegram";
 
 const App: React.FC = () => {
   const [token, setToken] = useState<string>(() => {
@@ -73,10 +73,11 @@ const App: React.FC = () => {
               <TwitterPage />
               <LoginButton
                 botUsername={"Phenoxide_bot"}
-                onAuthCallback={(data) => {
-                  console.log(data);
-                  // call your backend here to validate the data and sign in the user
-                }}
+                authCallbackUrl="https://ae53-103-232-238-211.ngrok-free.app/telegramAuth"
+                buttonSize="large" // "large" | "medium" | "small"
+                cornerRadius={5} // 0 - 20
+                showAvatar={true} // true | false
+                lang="en"
               />
             </div>
             <Accordion type="single" collapsible>
