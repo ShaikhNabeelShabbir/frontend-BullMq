@@ -72,11 +72,11 @@ const App: React.FC = () => {
               <GitHubPage />
               <TwitterPage />
               <LoginButton
-                botUsername={"Phenoxide_bot"}
-                authCallbackUrl="https://ae53-103-232-238-211.ngrok-free.app/telegramAuth"
-                buttonSize="large" // "large" | "medium" | "small"
-                cornerRadius={5} // 0 - 20
-                showAvatar={true} // true | false
+                botUsername="Phenoxide_bot"
+                authCallbackUrl="https://3888-103-232-238-200.ngrok-free.app/telegramAuth"
+                buttonSize="large"
+                cornerRadius={5}
+                showAvatar={true}
                 lang="en"
               />
             </div>

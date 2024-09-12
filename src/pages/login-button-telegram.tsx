@@ -29,7 +29,41 @@ export function LoginButton(props: LoginButtonProps) {
     scriptRef.current?.remove();
 
     // init the global variable
-    initTelegramAuthLogin({ onAuthCallback: props.onAuthCallback });
+    initTelegramAuthLogin({
+      onAuthCallback: async (user) => {
+        console.log("Authenticated user:", user);
+        const { id: telegram_user_id, first_name } = user;
+
+        // Send telegram_user_id to your backend
+        try {
+          const response = await fetch(
+            "http://localhost:3000/schedule-job",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                telegram_user_id,
+                message: `Hello ${first_name}!`,
+              }),
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+          console.log("Response from backend:", data);
+        } catch (error) {
+          console.error("Failed to send telegram_user_id to backend:", error);
+        }
+
+        // Call the original onAuthCallback if passed as a prop
+        props.onAuthCallback?.(user);
+      },
+    });
 
     // create a new script element and save it
     scriptRef.current = createScript(props);
