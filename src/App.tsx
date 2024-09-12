@@ -73,7 +73,7 @@ const App: React.FC = () => {
               <TwitterPage />
               <LoginButton
                 botUsername="Phenoxide_bot"
-                authCallbackUrl="https://3888-103-232-238-200.ngrok-free.app/telegramAuth"
+                authCallbackUrl="https://eeb9-103-232-238-200.ngrok-free.app/telegramAuth"
                 buttonSize="large"
                 cornerRadius={5}
                 showAvatar={true}
