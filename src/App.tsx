@@ -6,6 +6,7 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
+import { LoginButton } from "@telegram-auth/react";
 
 // Import pages
 import CreateToken from "./pages/CreateToken";
@@ -13,9 +14,6 @@ import ViewTokens from "./pages/ViewTokens";
 import DeleteToken from "./pages/DeleteToken";
 import UpdateToken from "./pages/UpdateToken";
 import LinkedInPage from "./pages/linkedIn-page";
-export * from "./pages/login-button-telegram";
-export * from "./pages/create-script";
-export * from "./pages/types";
 
 // Import components
 import { Button } from "./components/ui/button";
@@ -38,7 +36,6 @@ import {
 import "./styles.css";
 import GitHubPage from "./pages/github-login-page";
 import TwitterPage from "./pages/twitter-page";
-import { LoginButton } from "./pages/login-button-telegram";
 
 const App: React.FC = () => {
   const [token, setToken] = useState<string>(() => {
@@ -73,10 +70,10 @@ const App: React.FC = () => {
               <TwitterPage />
               <LoginButton
                 botUsername="Phenoxide_bot"
-                authCallbackUrl="https://eeb9-103-232-238-200.ngrok-free.app/telegramAuth"
-                buttonSize="large"
-                cornerRadius={5}
-                showAvatar={true}
+                authCallbackUrl="https://c3d8-103-232-238-200.ngrok-free.app"
+                buttonSize="large" // "large" | "medium" | "small"
+                cornerRadius={5} // 0 - 20
+                showAvatar={true} // true | false
                 lang="en"
               />
             </div>
