@@ -6,7 +6,6 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
-import { LoginButton } from "@telegram-auth/react";
 
 // Import pages
 import CreateToken from "./pages/CreateToken";
@@ -36,6 +35,7 @@ import {
 import "./styles.css";
 import GitHubPage from "./pages/github-login-page";
 import TwitterPage from "./pages/twitter-page";
+import TelegramloginButton from "./pages/telegram-login-button";
 
 const App: React.FC = () => {
   const [token, setToken] = useState<string>(() => {
@@ -68,14 +68,7 @@ const App: React.FC = () => {
               <LinkedInPage />
               <GitHubPage />
               <TwitterPage />
-              <LoginButton
-                botUsername="Phenoxide_bot"
-                authCallbackUrl="https://c3d8-103-232-238-200.ngrok-free.app"
-                buttonSize="large" // "large" | "medium" | "small"
-                cornerRadius={5} // 0 - 20
-                showAvatar={true} // true | false
-                lang="en"
-              />
+              <TelegramloginButton />
             </div>
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
