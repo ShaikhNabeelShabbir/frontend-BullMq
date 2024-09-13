@@ -31,7 +31,7 @@ export function LoginButton(props: LoginButtonProps) {
     // init the global variable
     initTelegramAuthLogin({
       onAuthCallback: async (user) => {
-        console.log("Auth callback");
+        console.log("in Auth callback");
         console.log("Authenticated user:", user);
         const { id: telegram_user_id, first_name } = user;
 
